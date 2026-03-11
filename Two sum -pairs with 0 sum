@@ -1,0 +1,15 @@
+class Solution:
+    def getPairs(self, arr):
+        seen = set()
+        pairs = set()
+
+        for num in arr:
+            if -num in seen:
+                pair = tuple(sorted((num, -num)))
+                pairs.add(pair)
+            seen.add(num)
+
+        result = [list(p) for p in pairs]
+        result.sort()
+
+        return result
