@@ -1,0 +1,18 @@
+class Solution:
+    def isSubset(self, a, b):
+        freq = {}
+
+        # Store frequency of elements in array a
+        for i in a:
+            if i in freq:
+                freq[i] += 1
+            else:
+                freq[i] = 1
+
+        # Check elements of array b
+        for j in b:
+            if j not in freq or freq[j] == 0:
+                return False
+            freq[j] -= 1
+
+        return True
