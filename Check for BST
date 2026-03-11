@@ -1,0 +1,13 @@
+class Solution:
+    def isBST(self, root):
+        return self.check(root, float('-inf'), float('inf'))
+    
+    def check(self, node, min_val, max_val):
+        if node is None:
+            return True
+        
+        if node.data <= min_val or node.data >= max_val:
+            return False
+        
+        return (self.check(node.left, min_val, node.data) and
+                self.check(node.right, node.data, max_val))
